@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武汉热干面大学随机点名系统</title>
+    <link rel="icon" href="img/bitbug_favicon (1).ico">
+    <style>
+        /* 初始化页面，清除所有元素的内外边距 */
+        *{
+            padding: 0;
+            margin: 0;
+            width: 1000px;
+            /* 设置背景颜色为414141 */
+            background-image: url(img/wallhaven-6q5mdw.png);
+            background-repeat: no-repeat;
+		    background-position: center center;
+		    
+		    
+        }
+        /* 盒子居中 */
+        div{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            
+        }
+        /* 使用文字渐变效果，再加一点点文字阴影 */
+        span,h2,h3,h4{
+        	text-shadow: 0 0 10px #dfd8d8;
+            background: linear-gradient(135deg,#14ffe9,#ffeb3b,#ff00e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: ff 0.9s linear infinite;
+        }
+        @keyframes ff{
+            to{filter: hue-rotate(360deg);}
+        }
+        /* 设置一下字体大小 */
+        h2{
+            font-size: 72px;
+            font:normal 80px/160px "华文中宋";
+        }
+        h3{
+        	font-size: 60px;
+        	font:normal 70px/140px "方正姚体";
+        }
+        h4{
+        	font:normal 30px/100px "Algerian";
+        }
+        span{
+            font-size: 50px;
+        }
+		
+
+        /* 按钮居中 */
+        button{
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 80px;
+            height: 25px;
+            box-shadow: 0 0 10px #fff;
+            /* 取消轮廓线 */
+            outline: none;
+            background-color: wheat;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>武汉热干面大学随机点名</h2>
+        <h3>信息技术学院·大数据技术2203</h3>
+        <h4>School of Information Technology, Big Data Technology 2203</h4>
+        <span id="name"></span>
+    </div>
+    <button id="button_text">stop</button>
+
+
+    <script>
+        // 获取标签
+        let nametxt=document.getElementById('name');
+        let button=document.getElementById('button_text');
+        // 创建一个数组存储名字
+        let uname=['-周煜(♀)-','-扈桥(♂)-','-龚俊(♂)-','-李子恒(♂)-','-朱亚男(♀)-','-刘傲(♂)-','-叶长忍(♀)-','-张子扬(♂)-','-胡胜圆(♂)-','-叶宽(♂)-','-张哲炜(♂)-','-石东浩(♂)-',
+					'-张欣平(♀)-','-夏欣悦(♀)-','-张洁瑜(♀)-','-杨曾(♂)-','-方天凯(♂)-','-蔡紫怡(♀)-','-胡爽(♂)-','-冯丽璇(♀)-','-徐凡凡()-','-姚凯臣(♂)-',
+					'-陈明康(♂)-','-王璐瑶(♀)-','-顾文杰(♂)-','-罗江铭(♂)-','-张钊俞(♂)-','-萧慧娟(♀)-','-覃凤莎(♀)-','-马晓艳(♀)-','-昂文松保(♂)-','-王鸿燕(♀)-','-马丽琼(♀)-','-仁增多杰(♂)-',
+					'-田家旺(♂)-','-钟琴(♀)-',];
+        // 创建一个函数生成随机数字
+        function getrandom(min,max){
+            return Math.floor(Math.random()*(max-min-1)+min);
+        }
+        function clock(){
+            // 通过获取一个随机的数组下标实现随机获取一个名字，并将这个名字赋值给变量random
+            let random=uname[getrandom(0,uname.length-1)];
+            //将random塞到span里
+            nametxt.innerHTML=random;
+        };
+        // 打印名字已经实现了，下一步让没点击按钮前名字一直刷新
+        // 设置不停止时名字的刷新速度为30毫秒
+        let time=self.setInterval("clock()",30);
+        // 将开始与停止按钮绑定到按钮上，并通过按钮控制
+        let flag=false;
+        button.onclick=function(){
+            // 当flag标志为false时，点击按钮让刷新停止；
+            if(flag==false)
+            {
+                time=window.clearInterval(time);
+                // 按钮文字从stop变为start；
+                button.innerHTML='开始-start';
+                // 标志变更
+                flag=true;
+            }else{
+                // 当flag标志为true时，开始刷新，文字变更
+                time=self.setInterval("clock()",30);
+                button.innerHTML='停止-stop';
+                flag=false;
+            }
+        }
+    </script>
+</body>
+</html>

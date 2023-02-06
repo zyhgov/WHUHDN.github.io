@@ -45,13 +45,33 @@
                     </div>
                 </div>
             </nav>
+            <!-- 实时时间 -->
+            <script>
+                Date.prototype.format = function (fmt) {
+                    var o = {
+                        "y+": this.getFullYear, //年
+                        "M+": this.getMonth() + 1, //月份
+                        "d+": this.getDate(), //日
+                        "h+": this.getHours(), //小时
+                        "m+": this.getMinutes(), //分
+                        "s+": this.getSeconds() //秒
+                    };
+                    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                    for (var k in o)
+                        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                    return fmt;
+                }
+                setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+            </script>
+            <div id="dateTime">国家授时中心北京时间</div>
             <!--头部滚动新闻条-->
             <div class="blog-part right-blog">
                 <marquee width="100%" direction="left">
                  <span><img src="assets/logo-wh-yuan.png" alt="" width="35"> 武汉热干面大学®🏛️张永豪党委书记、校长祝同学们2023癸卯兔年新年快乐，兔飞猛进！</span>
                  <span>学校官网2.0网站正式上线，点击访问<a href="https://zyhgov.github.io/WHUHDN.github.io/" target="_blank"> <img src="assets/top1.png" alt="" width="160"></a></span>
                  <span><img src="assets/jyb.png" alt="" width="35"> 武汉热干面大学日前通过教育部审核，荣获“全国优秀高等教育办学建设奖”！</span>
-                 <span><img src="assets/qxt.png" alt="" width="35"> 中央气象台:2月7日-9日，我国中东部大部地区将出现明显雨雪天气，西北地区、华北西部和北部、黄淮西部等地有小到中雪或雨夹雪，部分地区大雪；江汉、江淮、江南、华南等地有中到大雨，局地暴雨。</span>
+                 <span><img src="assets/xyjyjsxy.png" alt="" width="35"> 友校襄阳职业技术学院在2022“金平果”职业院校百强中位列湖北第三、全国第六十！</span>
+                 <span><img src="assets/qxt.png" alt="" width="35"> 中央气象台预计2月7日-9日，我国中东部大部地区将出现明显雨雪天气，西北地区、华北西部和北部、黄淮西部等地有小到中雪或雨夹雪，部分地区大雪；江汉、江淮、江南、华南等地有中到大雨，局地暴雨。</span>
                  <span><img src="assets/gov.png" alt="" width="35"> 国务院:中共中央政治局就加快构建新发展格局进行第二次集体学习 习近平主持学习并发表重要讲话。</span>
                  <span><img src="assets/rmrb.png" alt="" width="50"> 人民日报、教育部:改革重心转向产教融合，让学生多样化、多途径成长-拓宽职业教育成才通道</span>
                 </marquee>

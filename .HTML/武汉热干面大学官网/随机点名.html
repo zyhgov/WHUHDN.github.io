@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>武汉热干面大学随机点名系统</title>
-    <link rel="icon" href="img/bitbug_favicon (1).ico">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <style>
         /* 初始化页面，清除所有元素的内外边距 */
         *{
@@ -13,10 +13,16 @@
             margin: 0;
             width: 1000px;
             /* 设置背景颜色为414141 */
-            background-image: url(img/wallhaven-6q5mdw.png);
+            background-image: url("img/图片1.png");
             background-repeat: no-repeat;
 		    background-position: center center;
-		    
+		    background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
 		    
         }
         /* 盒子居中 */
@@ -26,7 +32,7 @@
             left: 50%;
             transform: translate(-50%,-50%);
             text-align: center;
-            
+            background-color: rgba(254,219,207,0);
         }
         /* 使用文字渐变效果，再加一点点文字阴影 */
         span,h2,h3,h4{
@@ -52,7 +58,7 @@
         	font:normal 30px/100px "Algerian";
         }
         span{
-            font-size: 50px;
+            font-size: 120px;
         }
 		
 
@@ -88,10 +94,10 @@
         let nametxt=document.getElementById('name');
         let button=document.getElementById('button_text');
         // 创建一个数组存储名字
-        let uname=['-周煜(♀)-','-扈桥(♂)-','-龚俊(♂)-','-李子恒(♂)-','-朱亚男(♀)-','-刘傲(♂)-','-叶长忍(♀)-','-张子扬(♂)-','-胡胜圆(♂)-','-叶宽(♂)-','-张哲炜(♂)-','-石东浩(♂)-',
-					'-张欣平(♀)-','-夏欣悦(♀)-','-张洁瑜(♀)-','-杨曾(♂)-','-方天凯(♂)-','-蔡紫怡(♀)-','-胡爽(♂)-','-冯丽璇(♀)-','-徐凡凡()-','-姚凯臣(♂)-',
-					'-陈明康(♂)-','-王璐瑶(♀)-','-顾文杰(♂)-','-罗江铭(♂)-','-张钊俞(♂)-','-萧慧娟(♀)-','-覃凤莎(♀)-','-马晓艳(♀)-','-昂文松保(♂)-','-王鸿燕(♀)-','-马丽琼(♀)-','-仁增多杰(♂)-',
-					'-田家旺(♂)-','-钟琴(♀)-',];
+        let uname=['-周煜 (♀)-','-扈桥 (♂)-','-龚俊 (♂)-','-李子恒 (♂)-','-朱亚男 (♀)-','-刘傲 (♂)-','-叶长忍 (♀)-','-张子扬 (♂)-','-胡胜圆 (♂)-','-叶宽 (♂)-','-张哲炜 (♂)-','-石东浩 (♂)-',
+					'-张欣平 (♀)-','-夏欣悦 (♀)-','-张洁瑜 (♀)-','-杨曾 (♂)-','-方天凯 (♂)-','-蔡紫怡 (♀)-','-胡爽 (♂)-','-冯丽璇 (♀)-','-徐凡凡 (♀)-','-姚凯臣 (♂)-',
+					'-陈明康 (♂)-','-王璐瑶 (♀)-','-顾文杰 (♂)-','-罗江铭 (♂)-','-张钊俞 (♂)-','-萧慧娟 (♀)-','-覃凤莎 (♀)-','-马晓艳 (♀)-','-昂文松保 (♂)-','-王鸿燕 (♀)-','-马丽琼 (♀)-','-仁增多杰 (♂)-',
+					'-田家旺 (♂)-','-钟琴 (♀)-',];
         // 创建一个函数生成随机数字
         function getrandom(min,max){
             return Math.floor(Math.random()*(max-min-1)+min);
